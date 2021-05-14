@@ -1,0 +1,50 @@
+:root {
+  --green: hsl(100.6 100% 54%);
+  --bg: hsl(0 100% 0%);
+}
+body {
+  background-color: var(--bg);
+}
+
+.outer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 0.2em solid var(--green);
+  border-radius: 0.2em;
+  background-color: black;
+  box-shadow: 0 0 0.6em var(--green) inset, 0 0 0.6em var(--green);
+  color: var(--green);
+  font-family: sans-serif;
+  font-size: 4rem;
+  padding: 0.5em 1em;
+  font-weight: bold;
+  text-shadow: 0 0 0.3em var(--green), 0 0 0.05em white;
+ 
+}
+
+.outer::before {
+  position: absolute;
+  top: 130%;
+  left: 0;
+  content: "";
+  height: 100%;
+  width: 100%;
+  background-color: var(--green);
+  transform: perspective(1em) rotateX(30deg);
+  filter: blur(1.5em);
+  opacity: 60%;
+  pointer-events: none;
+}
+
+.outer:hover {
+  background-color: var(--green);
+  color: black;
+  box-shadow: 0 0 0.6em var(--green) inset, 0 0 1em var(--green);
+}
+.parent:hover>.outer:hover::before {
+  opacity: 75%;
+
+}
+
